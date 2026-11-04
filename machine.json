@@ -1,0 +1,6 @@
+{
+  "schema": 1,
+  "kind": "player",
+  "description": "Keeps every note in one key: notes outside the scale snap to it, rest, or play from the white keys; chords stay diatonic.",
+  "sdk": "1.8"
+}

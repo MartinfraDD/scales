@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "scales",
+  "name": "Scales",
+  "parameters": [
+    {
+      "id": "key",
+      "label": "Key",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["C", "C sharp", "D", "D sharp", "E", "F", "F sharp", "G", "G sharp", "A", "A sharp", "B"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "scale",
+      "label": "Scale",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["maj", "min", "dor", "phr", "lyd", "mix", "loc", "hmin", "mmin", "pent", "mpent", "blues"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "fit",
+      "label": "Fit",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["near", "down", "up", "mute", "white"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "chord",
+      "label": "Chord",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["off", "3rd", "triad", "7th"]
+      },
+      "display": "enum"
+    }
+  ],
+  "presets": {},
+  "resources": {}
+}
