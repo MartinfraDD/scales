@@ -1,7 +1,8 @@
 """Generate the Scales page artwork (480 x 220).
 
 Two octaves of keys with a dot on each key the scale uses, the scale's name,
-and the SDK's keyboard of sounding notes along the bottom.
+and the SDK's keyboard of sounding notes along the bottom. The top 38 pixels
+belong to the SDK's two-row header.
 """
 from pathlib import Path
 
@@ -12,7 +13,7 @@ MIDI_WHITE = (0, 2, 4, 5, 7, 9, 11)  # pitch classes from C
 LOWEST, HIGHEST = 53, 76  # F3 to E5, the keyboard at rest
 HIDDEN = 1024
 
-parts = ['<g id="scales_panel">', '<rect x="0" y="20" width="480" height="200" fill="#000000"/>']
+parts = ['<g id="scales_panel">', '<rect x="0" y="38" width="480" height="182" fill="#000000"/>']
 
 
 def rect(x, y, w, h, fill):
@@ -39,17 +40,17 @@ def is_black(note):
 width = 444 / 14
 for octave in range(2):
     for i in range(7):
-        rect(18 + (octave * 7 + i) * width, 40, width, 56, '#F0F0F0')
+        rect(18 + (octave * 7 + i) * width, 52, width, 56, '#F0F0F0')
     for i in BLACK_AFTER:
-        rect(18 + (octave * 7 + i - 0.3) * width, 40, width * 0.6, 34, '#000000')
+        rect(18 + (octave * 7 + i - 0.3) * width, 52, width * 0.6, 34, '#000000')
 
 for k in range(24):
     position, octave = k % 12, k // 12
     black = position in BLACK
     slot = BLACK_AFTER[BLACK.index(position)] if black else WHITE.index(position) + 0.5
-    dot(f'scales_dot_{k}', 18 + (octave * 7 + slot) * width, 66 if black else 86, 4, '#F0F0F0' if black else '#000000')
+    dot(f'scales_dot_{k}', 18 + (octave * 7 + slot) * width, 78 if black else 98, 4, '#F0F0F0' if black else '#000000')
 
-parts.append('<text id="scales_text" transform="matrix(1 0 0 1 240 142)" fill="#F2F2F2" font-family="UniversNextPro-Light" font-size="22">scales</text>')
+parts.append('<text id="scales_text" transform="matrix(1 0 0 1 240 148)" fill="#F2F2F2" font-family="UniversNextPro-Light" font-size="22">scales</text>')
 
 # The SDK moves and scales every key and activity dot each frame. They are
 # authored at rest for the default two octaves, the rest out of view.

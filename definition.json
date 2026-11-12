@@ -2,6 +2,7 @@
   "schema": 1,
   "id": "scales",
   "name": "Scales",
+  "press": "page",
   "parameters": [
     {
       "id": "key",
@@ -40,6 +41,46 @@
       "mapping": {
         "kind": "enum",
         "labels": ["off", "3rd", "triad", "7th"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "arp",
+      "label": "Arp",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["off", "4th", "4th T", "8th", "8th T", "16th", "16th T", "32nd", "32nd T", "64th"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "dir",
+      "label": "Dir",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["up", "down", "up down", "up down repeat", "random", "order"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "len",
+      "label": "Len",
+      "default": 0.5,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["staccato", "normal", "legato"]
+      },
+      "display": "enum"
+    },
+    {
+      "id": "range",
+      "label": "Range",
+      "default": 0,
+      "mapping": {
+        "kind": "enum",
+        "labels": ["1 oct", "2 oct", "3 oct", "4 oct"]
       },
       "display": "enum"
     }

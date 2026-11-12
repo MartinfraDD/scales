@@ -1,54 +1,54 @@
 <g id="scales_panel">
-<rect x="0" y="20" width="480" height="200" fill="#000000"/>
-<rect x="18" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="49.7143" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="81.4286" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="113.143" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="144.857" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="176.571" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="208.286" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="40.2" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="71.9143" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="103.629" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="167.057" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="198.771" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="240" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="271.714" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="303.429" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="335.143" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="366.857" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="398.571" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="430.286" y="40" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
-<rect x="262.2" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="293.914" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="325.629" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="389.057" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<rect x="420.771" y="40" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
-<circle id="scales_dot_0" transform="matrix(1 0 0 1 33.8571 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_1" transform="matrix(1 0 0 1 49.7143 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_2" transform="matrix(1 0 0 1 65.5714 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_3" transform="matrix(1 0 0 1 81.4286 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_4" transform="matrix(1 0 0 1 97.2857 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_5" transform="matrix(1 0 0 1 113.143 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_6" transform="matrix(1 0 0 1 129 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_7" transform="matrix(1 0 0 1 160.714 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_8" transform="matrix(1 0 0 1 176.571 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_9" transform="matrix(1 0 0 1 192.429 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_10" transform="matrix(1 0 0 1 208.286 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_11" transform="matrix(1 0 0 1 224.143 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_12" transform="matrix(1 0 0 1 255.857 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_13" transform="matrix(1 0 0 1 271.714 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_14" transform="matrix(1 0 0 1 287.571 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_15" transform="matrix(1 0 0 1 303.429 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_16" transform="matrix(1 0 0 1 319.286 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_17" transform="matrix(1 0 0 1 335.143 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_18" transform="matrix(1 0 0 1 351 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_19" transform="matrix(1 0 0 1 382.714 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_20" transform="matrix(1 0 0 1 398.571 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_21" transform="matrix(1 0 0 1 414.429 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<circle id="scales_dot_22" transform="matrix(1 0 0 1 430.286 66)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
-<circle id="scales_dot_23" transform="matrix(1 0 0 1 446.143 86)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
-<text id="scales_text" transform="matrix(1 0 0 1 240 142)" fill="#F2F2F2" font-family="UniversNextPro-Light" font-size="22">scales</text>
+<rect x="0" y="38" width="480" height="182" fill="#000000"/>
+<rect x="18" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="49.7143" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="81.4286" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="113.143" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="144.857" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="176.571" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="208.286" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="40.2" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="71.9143" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="103.629" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="167.057" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="198.771" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="240" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="271.714" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="303.429" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="335.143" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="366.857" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="398.571" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="430.286" y="52" width="31.7143" height="56" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
+<rect x="262.2" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="293.914" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="325.629" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="389.057" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<rect x="420.771" y="52" width="19.0286" height="34" fill="#000000" stroke="#000000" stroke-width="1"/>
+<circle id="scales_dot_0" transform="matrix(1 0 0 1 33.8571 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_1" transform="matrix(1 0 0 1 49.7143 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_2" transform="matrix(1 0 0 1 65.5714 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_3" transform="matrix(1 0 0 1 81.4286 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_4" transform="matrix(1 0 0 1 97.2857 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_5" transform="matrix(1 0 0 1 113.143 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_6" transform="matrix(1 0 0 1 129 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_7" transform="matrix(1 0 0 1 160.714 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_8" transform="matrix(1 0 0 1 176.571 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_9" transform="matrix(1 0 0 1 192.429 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_10" transform="matrix(1 0 0 1 208.286 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_11" transform="matrix(1 0 0 1 224.143 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_12" transform="matrix(1 0 0 1 255.857 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_13" transform="matrix(1 0 0 1 271.714 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_14" transform="matrix(1 0 0 1 287.571 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_15" transform="matrix(1 0 0 1 303.429 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_16" transform="matrix(1 0 0 1 319.286 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_17" transform="matrix(1 0 0 1 335.143 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_18" transform="matrix(1 0 0 1 351 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_19" transform="matrix(1 0 0 1 382.714 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_20" transform="matrix(1 0 0 1 398.571 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_21" transform="matrix(1 0 0 1 414.429 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<circle id="scales_dot_22" transform="matrix(1 0 0 1 430.286 78)" cx="0" cy="0" r="4" fill="#F0F0F0" stroke="#F0F0F0" stroke-width="0.5"/>
+<circle id="scales_dot_23" transform="matrix(1 0 0 1 446.143 98)" cx="0" cy="0" r="4" fill="#000000" stroke="#000000" stroke-width="0.5"/>
+<text id="scales_text" transform="matrix(1 0 0 1 240 148)" fill="#F2F2F2" font-family="UniversNextPro-Light" font-size="22">scales</text>
 <path id="scales_key_0" transform="matrix(1 0 0 1 1024 174)" d="M0 0H10V44H0Z" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
 <path id="scales_key_2" transform="matrix(1 0 0 1 1024 174)" d="M0 0H10V44H0Z" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>
 <path id="scales_key_4" transform="matrix(1 0 0 1 1024 174)" d="M0 0H10V44H0Z" fill="#F0F0F0" stroke="#000000" stroke-width="1"/>

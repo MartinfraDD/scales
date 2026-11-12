@@ -24,8 +24,8 @@ would check on the device updates its lines here. Note the SDK commit and firmwa
 
 - [ ] The OP-XY boots, and stock engines, effects, the sequencer and project save/load work
 - [ ] Scales is in the player list beside Arpeggio, Hold and Maestro, under its name
-- [ ] Choosing it opens its page: the stock header with key, scale, fit and chord, two octaves of
-      keys with dots, the line "C major" and a small keyboard along the bottom
+- [ ] Choosing it opens its page: a two-row header (key, scale, fit, chord above arp, dir, len,
+      range), two octaves of keys with dots, the line "C major" and a small keyboard along the bottom
 
 ## Its page and controls
 
@@ -34,6 +34,11 @@ would check on the device updates its lines here. Note the SDK commit and firmwa
 - [ ] Scale steps through its twelve choices one per detent; the dots and the line follow
 - [ ] Fit and Chord step through their choices one per detent; the header value reads near, down, up,
       mute, white and off, 3rd, triad, 7th
+- [ ] Press any encoder: the other row becomes the large one the encoders turn, and the first turns
+      small and grey. Every encoder does this, and a second press switches back
+- [ ] On the second row, Arp, Dir, Len and Range step one choice per detent and stop at their ends.
+      No value runs into the next column
+- [ ] Turning a control on one row leaves the other row alone
 - [ ] Fast turns: the values keep up, no flicker or slowdown
 - [ ] Shift + an octave key: the keyboard shifts and the dots follow the scale on the new octave
 - [ ] The page while playing and while stopped, and after leaving it and coming back: nothing stale,
@@ -76,6 +81,25 @@ Key C, Scale maj, fit near, Chord off.
 - [ ] Hold eight white keys: all sound. Press a ninth: nothing. Release one and press it again: it sounds
 - [ ] Press stop with keys held: everything stops, and the next presses play normally
 
+## Arp
+
+Key C, Scale maj, fit near, Chord off, Dir up, Len norm, Range 1 oct, tempo 120, metronome on.
+
+- [ ] Arp 1/4, hold C: one note per click. 1/8, 1/16, 1/32, 1/64: two, four, eight, sixteen per
+      click. 1/4T: three over two clicks. The notes stay on the click, follow a tempo change, and
+      stay in step with the stock Arpeggio on another track
+- [ ] Hold C, E and G at 1/8: up plays C E G, down G E C, up/dn C E G E C, u/r/d C E G G E C, order
+      the order you pressed them, rand no fixed order
+- [ ] Len stac: short notes. norm: about half the step. leg: each note lasts until the next
+- [ ] Range 2 oct with C held: C, then C an octave up. 4 oct: four octaves
+- [ ] Chord triad, hold C: the arp plays C E G
+- [ ] Add a key while holding: it joins on the next note. Let go of every key: silence at once
+- [ ] Turn Arp to off while holding: silence until you press a key again
+- [ ] Press stop, or switch the player away, while the arp runs: no stuck notes
+- [ ] Record a held chord with the arp on: playback plays it the same way
+
+Then turn Arp to off.
+
 ## Sequencer
 
 - [ ] Record a bar with white and black keys on track 1 with Key C, Scale maj, fit near: playback
@@ -104,7 +128,8 @@ Then play scene 1.
       **qa** loads as last saved
 - [ ] Load **plain**: track 1 has its own sound and player, nothing of **qa** shows. Load **qa** again: all back
 - [ ] While playing, load **plain** and then **qa** again: nothing freezes, no stray values
-- [ ] Create a new project: put Scales on a track; it starts at C, maj, near, off
+- [ ] Create a new project: put Scales on a track; it starts at C, maj, near, off and off, up, norm,
+      1 oct, with the encoders on the first row. A loaded project also starts on the first row
 - [ ] On a firmware without Scales, open **qa**: it loads, track 1 plays with Arpeggio, and the rest of
       the project plays
 
@@ -126,4 +151,5 @@ Not failures, but worth confirming they haven't changed.
 - A note a chord adds to a held note is not re-sounded when it is also released by another key's
   chord; only pitches shared between two held keys are.
 - Re-sounding a shared pitch restarts its envelope.
+- A note held without the arp is cut when the arp ends a note of the same pitch.
 - Players have no CPU record: the profiler does not cover note transforms.
