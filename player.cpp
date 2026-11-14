@@ -65,6 +65,7 @@ struct Arp {
     u8 running;
     u8 carrier;  // the key whose record holds the arp's note
     u8 stop;     // the carrier is due silence
+    u8 falling;  // up/dn and u/r/d are on their way down
     u16 rest;    // steps from the sounding note's end to the next note
     u32 wait;    // steps until the note ends or, in a rest, the next begins
     u32 position;  // notes played since the arp started
@@ -287,48 +288,86 @@ u32 gather(const State& state, bool sorted, Tone* pool) {
     return count;
 }
 
+// Whether a lower octave of the pool already gives entry i's pitch at this
+// octave: a held pitch exactly that many octaves above it.
+bool repeated(const Tone* pool, u32 count, u32 i, u32 octave) {
+    for (u32 j = 0; j < count; ++j)
+        for (u32 d = 1; d <= octave; ++d)
+            if (pool[j].pitch == pool[i].pitch + 12 * d) return true;
+    return false;
+}
+
 // Entry `wanted` of the pool repeated up the range's octaves, and how many
-// entries there are. Pitches past MIDI 127 are left out.
+// entries there are. Pitches past MIDI 127, and pitches an octave already
+// gave, are left out.
 u32 spread(const Tone* pool, u32 count, u32 range, u32 wanted, Tone& out) {
     u32 n = 0;
     for (u32 octave = 0; octave < range; ++octave)
         for (u32 i = 0; i < count; ++i) {
             const u32 pitch = pool[i].pitch + 12 * octave;
-            if (pitch > 127) continue;
+            if (pitch > 127 || repeated(pool, count, i, octave)) continue;
             if (n++ == wanted) out = Tone{static_cast<u8>(pitch), pool[i].velocity, 0};
         }
     return n;
 }
 
-// Which of n notes comes next.
-u32 walk(State& state, Direction direction, u32 n) {
-    const u32 i = state.arp.position++;
-    switch (direction) {
-    case kDownward:
-        return n - 1 - i % n;
-    case kUpDown: {
-        const u32 k = i % (n > 1 ? 2 * n - 2 : 1);
-        return k < n ? k : 2 * n - 2 - k;
+// The nearest note above `from`, or below it going down, across the range's
+// octaves. False when there is none.
+bool beyond(const Tone* pool, u32 count, u32 range, i32 from, bool down, Tone& out) {
+    bool found = false;
+    for (u32 octave = 0; octave < range; ++octave)
+        for (u32 i = 0; i < count; ++i) {
+            const i32 pitch = pool[i].pitch + 12 * static_cast<i32>(octave);
+            if (pitch > 127 || (down ? pitch >= from : pitch <= from)) continue;
+            if (found && (down ? pitch <= out.pitch : pitch >= out.pitch)) continue;
+            out = Tone{static_cast<u8>(pitch), pool[i].velocity, 0};
+            found = true;
+        }
+    return found;
+}
+
+// The lowest note, or the highest.
+Tone end(const Tone* pool, u32 count, u32 range, bool top) {
+    Tone out = {};
+    beyond(pool, count, range, top ? 128 : -1, top, out);
+    return out;
+}
+
+// The next note in pitch order, found from the note before it, so keys that
+// join or leave mid-pattern neither repeat a note nor skip one.
+Tone next_in_order(Arp& arp, Direction direction, const Tone* pool, u32 count, u32 range) {
+    Tone out = {};
+    const i32 last = arp.tone.pitch;
+    if (!arp.position++) {
+        arp.falling = 0;
+        return end(pool, count, range, direction == kDownward);
     }
-    case kUpDownRepeat: {
-        const u32 k = i % (2 * n);
-        return k < n ? k : 2 * n - 1 - k;
-    }
-    case kRandom:
-        state.seed = state.seed * 1664525u + 1013904223u;
-        return (state.seed >> 16) % n;
-    default:
-        return i % n;
-    }
+    if (direction == kUpward)
+        return beyond(pool, count, range, last, false, out) ? out : end(pool, count, range, false);
+    if (direction == kDownward)
+        return beyond(pool, count, range, last, true, out) ? out : end(pool, count, range, true);
+    if (beyond(pool, count, range, last, arp.falling, out)) return out;
+    // At either end the pattern turns. u/r/d plays the end note again first.
+    arp.falling = !arp.falling;
+    if (direction == kUpDownRepeat) return end(pool, count, range, arp.falling);
+    return beyond(pool, count, range, last, arp.falling, out) ? out : end(pool, count, range, false);
 }
 
 // The arp's next note, from the keys held now.
 Tone next_tone(State& state, const Settings& s) {
     Tone pool[kMaxRoots * kMaxTones];
     const u32 count = gather(state, s.direction != kAsPlayed, pool);
+    if (!count) return Tone{};
+    if (s.direction != kAsPlayed && s.direction != kRandom)
+        return next_in_order(state.arp, s.direction, pool, count, s.range);
     Tone tone = {};
     const u32 n = spread(pool, count, s.range, ~0u, tone);
-    spread(pool, count, s.range, walk(state, s.direction, n), tone);
+    u32 i = state.arp.position++ % n;
+    if (s.direction == kRandom) {
+        state.seed = state.seed * 1664525u + 1013904223u;
+        i = (state.seed >> 16) % n;
+    }
+    spread(pool, count, s.range, i, tone);
     return tone;
 }
 
@@ -341,14 +380,16 @@ u32 pace(Arp& arp, const Settings& s) {
     return gate;
 }
 
-// Starts the arp on the key just pressed, whose plan carries the first note.
-void start(State& state, const Settings& s, u32 note, Plan& plan) {
+// Starts the arp on the key just pressed. Its record holds a queued tone until
+// the next step picks the first note, so keys pressed at the same moment all
+// count, in whatever order they arrive.
+void start(State& state, const Root& root, Plan& plan) {
     Arp& arp = state.arp;
     arp = Arp{};
     arp.running = 1;
-    arp.carrier = static_cast<u8>(note);
-    arp.tone = next_tone(state, s);
-    arp.wait = pace(arp, s) + 1;  // the note sounds on the next step
+    arp.carrier = static_cast<u8>(root.note - 1);
+    arp.tone = Tone{root.pitch[0], root.velocity, kQueued};
+    arp.wait = 1;
     plan.count = 1;
     plan.tones[0] = arp.tone;
 }
@@ -428,7 +469,7 @@ bool press(State& state, const Controls& controls, u32 note, u32 velocity, Plan&
     *root = next;
     Arp& arp = state.arp;
     if (root->arp) {
-        if (!arp.running && s.rate) start(state, s, note, plan);
+        if (!arp.running && s.rate) start(state, *root, plan);
         return true;
     }
     // This plan takes over the record of an arp carried on the same key.

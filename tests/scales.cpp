@@ -461,12 +461,66 @@ void arp_directions() {
         begins(s, chord[direction]);
     }
 
-    // The first note comes from the one key held; the others join for the next.
+    // Keys pressed at the same moment all count toward the first note, in
+    // whatever order the sequencer sends them.
     Stage up;
     up.set(kArp, kSixteenth);
     up.down(G4); up.down(C4); up.down(E4);
     up.run(360);
-    begins(up, {G4, E4, G4, C4, E4, G4});
+    begins(up, {C4, E4, G4, C4, E4, G4});
+
+    Stage chords;
+    chords.set(kArp, kSixteenth); chords.set(kChord, kTriad);
+    chords.down(E4); chords.down(C4);
+    chords.run(480);
+    begins(chords, {C4, E4, G4, B4, C4, E4, G4, B4});
+
+    // A key pressed after the first note joins from the next one.
+    Stage late;
+    late.set(kArp, kSixteenth);
+    late.down(G4);
+    late.run(1);
+    late.down(C5);
+    late.run(240);
+    begins(late, {G4, C5, G4, C5});
+
+    // Keys that join or leave mid-pattern neither repeat a note nor skip one.
+    Stage lower;
+    lower.set(kArp, kSixteenth);
+    lower.down(G4);
+    lower.run(1);
+    lower.down(C4);
+    lower.run(240);
+    begins(lower, {G4, C4, G4, C4});
+
+    Stage leaves;
+    leaves.set(kArp, kSixteenth);
+    leaves.down(C4); leaves.down(E4); leaves.down(G4);
+    leaves.run(61);
+    leaves.up(C4);
+    leaves.run(240);
+    begins(leaves, {C4, E4, G4, E4, G4});
+
+    Stage turning;
+    turning.set(kArp, kSixteenth); turning.set(kDir, kUpDown);
+    turning.down(C4); turning.down(E4);
+    turning.run(61);
+    turning.down(G4);
+    turning.run(300);
+    begins(turning, {C4, E4, G4, E4, C4, E4, G4});
+
+    // A held note an octave above another plays once per pass, not twice.
+    for (u32 direction = kUpward; direction <= kAsPlayed; ++direction) {
+        if (direction == kRandom) continue;
+        Stage octaves;
+        octaves.set(kArp, kSixteenth); octaves.set(kRange, 1); octaves.set(kDir, direction);
+        octaves.down(C4); octaves.down(C5);
+        octaves.run(60 * 6);
+        const auto played = notes(octaves);
+        for (u32 i = 0; i + 1 < played.size(); ++i)
+            require(played[i].pitch != played[i + 1].pitch || direction == kUpDownRepeat);
+        require(played[0].pitch == (direction == kDownward ? C5 + 12 : C4));
+    }
 
     Stage order;
     order.set(kArp, kSixteenth); order.set(kDir, kAsPlayed);

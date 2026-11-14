@@ -2,5 +2,5 @@
   "schema": 1,
   "kind": "player",
   "description": "Keeps every note in one key: notes outside the scale snap to it, rest, or play from the white keys. Chords stay diatonic, and an arp plays held notes in turn.",
-  "sdk": "1.13"
+  "sdk": "1.16"
 }
